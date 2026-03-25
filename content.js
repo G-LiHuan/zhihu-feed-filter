@@ -6,7 +6,9 @@ var DEFAULT_RULES = { enabled: true, blockAds: true, keywords: [] };
 
 var AD_SELECTORS = [
   '[data-za-detail-view-name="FeedAdCard"]',
-  '.ContentItem-Ad'
+  '.ContentItem-Ad',
+  '.TopstoryItem--advertCard',
+  '.Pc-feedAd-new'
 ];
 
 var AD_LABEL_TEXTS = ['赞助', '推广'];

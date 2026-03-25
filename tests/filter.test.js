@@ -84,6 +84,16 @@ describe('shouldHideAd', () => {
     expect(shouldHideAd(el)).toBe(true);
   });
 
+  test('returns true for element with TopstoryItem--advertCard class', () => {
+    const el = makeEl('<div class="Card TopstoryItem TopstoryItem--advertCard"><div class="Pc-feedAd-new"><div class="Pc-feedAd-new-card-tag">广告</div></div></div>');
+    expect(shouldHideAd(el)).toBe(true);
+  });
+
+  test('returns true for element containing Pc-feedAd-new child', () => {
+    const el = makeEl('<div class="TopstoryItem"><div class="Pc-feedAd-new"><a>广告内容</a></div></div>');
+    expect(shouldHideAd(el)).toBe(true);
+  });
+
   test('returns false for normal content with no ad markers', () => {
     const el = makeEl('<div class="ContentItem"><h2>普通问题</h2><p>正常回答内容</p></div>');
     expect(shouldHideAd(el)).toBe(false);
